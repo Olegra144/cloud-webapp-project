@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 # Uncomment to enable Azure Monitor OpenTelemetry
 # Ref: aka.ms/functions-azure-monitor-python 
 # azure-monitor-opentelemetry 
 
 azure-functions
+=======
+
+>>>>>>> 9d33949d80f268c924431da05c2f79668ed14f4f

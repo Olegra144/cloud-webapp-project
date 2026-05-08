@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import azure.functions as func
 import datetime
 import json
@@ -25,3 +26,6 @@ def hello(req: func.HttpRequest) -> func.HttpResponse:
              "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.",
              status_code=200
         )
+=======
+
+>>>>>>> 9d33949d80f268c924431da05c2f79668ed14f4f
