@@ -12,15 +12,13 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Create ZIP
-      run: zip -r frontend.zip .
-      working-directory: ./frontend
-
-    - name: Deploy via Azure CLI
-      uses: azure/CLI@v1
+    - name: Azure Login
+      uses: azure/login@v1
       with:
-        inlineScript: |
-          az webapp deployment source config-zip \
-            --resource-group webappproject_group \
-            --name sbalabmodule3 \
-            --src frontend/frontend.zip
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Deploy Frontend
+      uses: azure/webapps-deploy@v3
+      with:
+        app-name: sbalabmodule3
+        package: ./frontend
