@@ -12,13 +12,14 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Azure Login
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Create clean ZIP
+      run: |
+        cd frontend
+        zip -r ../frontend.zip ./*
 
-    - name: Deploy Frontend
+    - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v3
       with:
         app-name: sbalabmodule3
-        package: ./frontend
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        package: frontend.zip
